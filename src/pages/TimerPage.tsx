@@ -17,7 +17,9 @@ const TimerPage = () => {
         </Typography>
         <div>
           <Button variant="contained">掃除を開始する</Button>
-          <Button variant="outlined">掃除を完了する</Button>
+          <Button variant="contained" disabled>
+            掃除を完了する
+          </Button>
         </div>
       </div>
     </div>
