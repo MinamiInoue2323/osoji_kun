@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import TimerPage from "./pages/TimerPage";
 import PlacePage from "./pages/PlacePage";
 import ConfigPage from "./pages/ConfigPage";
