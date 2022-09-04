@@ -1,10 +1,8 @@
-import Header from "../components/Header";
 import { Button, Typography } from "@mui/material";
 
 const TimerPage = () => {
   return (
     <div>
-      <Header />
       <div>
         <Typography variant="h2" component="h4" gutterBottom>
           床を掃除しよう！

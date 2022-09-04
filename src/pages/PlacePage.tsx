@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import {
   IconButton,
   List,
@@ -20,41 +19,38 @@ const PlacePage = () => {
   ];
   return (
     <div>
-      <Header />
       <div>
-        <div>
-          <TextField
-            id="standard-basic"
-            placeholder="掃除場所を追加 例：机の上"
-            variant="standard"
-          />
-          <IconButton>
-            <AddIcon />
-          </IconButton>
-        </div>
-        <div>
-          <List
-            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.white" }}
-          >
-            {PlaceList.map((place) => {
-              return (
-                <ListItem
-                  key={place.id}
-                  disablePadding
-                  secondaryAction={
-                    <IconButton>
-                      <ClearIcon />
-                    </IconButton>
-                  }
-                >
-                  <ListItemButton>
-                    <ListItemText primary={place.name} />
-                  </ListItemButton>
-                </ListItem>
-              );
-            })}
-          </List>
-        </div>
+        <TextField
+          id="standard-basic"
+          placeholder="掃除場所を追加 例：机の上"
+          variant="standard"
+        />
+        <IconButton>
+          <AddIcon />
+        </IconButton>
+      </div>
+      <div>
+        <List
+          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.white" }}
+        >
+          {PlaceList.map((place) => {
+            return (
+              <ListItem
+                key={place.id}
+                disablePadding
+                secondaryAction={
+                  <IconButton>
+                    <ClearIcon />
+                  </IconButton>
+                }
+              >
+                <ListItemButton>
+                  <ListItemText primary={place.name} />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+        </List>
       </div>
     </div>
   );
