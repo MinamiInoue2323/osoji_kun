@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import { Button, TextField, Typography } from "@mui/material";
 // import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -7,7 +6,6 @@ import { Button, TextField, Typography } from "@mui/material";
 const ConfigPage = () => {
   return (
     <div>
-      <Header />
       <div>
         <Typography variant="h4" component="p" gutterBottom>
           通知時間
