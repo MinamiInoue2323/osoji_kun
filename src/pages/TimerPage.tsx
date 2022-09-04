@@ -1,34 +1,27 @@
 import { useState } from "react";
-import reactLogo from "../assets/react.svg";
-import "../App.css";
 import Header from "../components/Header";
+import { Button, Typography } from "@mui/material";
 
 const TimerPage = () => {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
+    <div>
       <Header />
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Typography variant="h2" component="h4" gutterBottom>
+          床を掃除しよう！
+        </Typography>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div>
+        <Typography variant="h1" component="h2" gutterBottom>
+          10:00
+        </Typography>
+        <div>
+          <Button variant="contained">掃除を開始する</Button>
+          <Button variant="contained" disabled>
+            掃除を完了する
+          </Button>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 };
