@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
+
 import {
   Divider,
   Drawer,
@@ -14,6 +15,7 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -33,7 +35,12 @@ const Header = () => {
       <List>
         {pageList.map((page) => (
           <ListItem key={page.name} disablePadding>
-            <ListItemButton>
+            <ListItemButton
+              onClick={() => {
+                toggleDrawer();
+                navigate(page.url);
+              }}
+            >
               <ListItemText primary={page.name} />
             </ListItemButton>
           </ListItem>
@@ -42,6 +49,8 @@ const Header = () => {
       <Divider />
     </Box>
   );
+
+  const navigate = useNavigate();
 
   return (
     <div>
