@@ -24,5 +24,7 @@ module.exports = {
       "error",
       { checkFragmentShorthand: true, warnOnDuplicates: true },
     ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
   },
 };
