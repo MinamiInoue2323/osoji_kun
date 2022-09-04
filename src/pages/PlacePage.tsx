@@ -12,7 +12,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { usePlace } from "../hooks/usePlace";
 
 const PlacePage = () => {
-  const { placeList, addPlace, deletePlace, renamePlace } = usePlace();
+  const { placeList, addPlace, deletePlace } = usePlace();
   const [inputPlace, setInputPlace] = useState("");
   const handlePlaceInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputPlace(event.target.value);

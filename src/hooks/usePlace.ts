@@ -1,5 +1,5 @@
 import { Place } from "@mui/icons-material";
-import { useId, useState } from "react";
+import { useState } from "react";
 
 export type Place = {
   id: string;
