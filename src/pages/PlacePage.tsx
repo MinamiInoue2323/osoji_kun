@@ -9,14 +9,26 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import ClearIcon from "@mui/icons-material/Clear";
-import { usePlace } from "../hooks/usePlace";
+import { Place, usePlace } from "../hooks/usePlace";
+import PlaceModal from "../components/PlaceModal";
 
 const PlacePage = () => {
-  const { placeList, addPlace, deletePlace } = usePlace();
+  const { placeList, addPlace, deletePlace, renamePlace } = usePlace();
   const [inputPlace, setInputPlace] = useState("");
   const handlePlaceInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputPlace(event.target.value);
   };
+
+  // modal処理
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const handleModalOpen = (place: Place) => {
+    setTargetPlace(place);
+    setModalOpen(true);
+  };
+  const handleModalClose = () => setModalOpen(false);
+
+  //rename処理
+  const [targetPlace, setTargetPlace] = useState<Place | null>(null);
 
   return (
     <div>
@@ -52,7 +64,7 @@ const PlacePage = () => {
                   </IconButton>
                 }
               >
-                <ListItemButton>
+                <ListItemButton onClick={() => handleModalOpen(place)}>
                   <ListItemText primary={place.name} />
                 </ListItemButton>
               </ListItem>
@@ -60,6 +72,12 @@ const PlacePage = () => {
           })}
         </List>
       </div>
+      <PlaceModal
+        modalOpen={modalOpen}
+        handleModalClose={handleModalClose}
+        targetPlace={targetPlace}
+        renamePlace={renamePlace}
+      />
     </div>
   );
 };
