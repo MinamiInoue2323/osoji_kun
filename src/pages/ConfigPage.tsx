@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Stack, TextField, Typography } from "@mui/material";
 import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Dayjs } from "dayjs";
@@ -8,12 +8,15 @@ import { Dayjs } from "dayjs";
 const ConfigPage = () => {
   const [value, setValue] = React.useState<Dayjs | null>(null);
   return (
-    <div>
-      <div>
+    <Stack spacing={2}>
+      <Stack direction="row" spacing={2} justifyContent="space-between">
         <Typography variant="h4" component="p" gutterBottom>
           通知時間
         </Typography>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          sx={{ width: "right" }}
+        >
           <TimePicker
             value={value}
             onChange={(newValue) => {
@@ -22,11 +25,12 @@ const ConfigPage = () => {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-      </div>
+      </Stack>
+
       <div>
         <Button variant="contained">設定を保存</Button>
       </div>
-    </div>
+    </Stack>
   );
 };
 
