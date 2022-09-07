@@ -1,10 +1,15 @@
 import { Place } from "@mui/icons-material";
-import { useState } from "react";
+import { atom, useRecoilState } from "recoil";
 
 export type Place = {
   id: string;
   name: string;
 };
+
+const placeListState = atom({
+  key: "placeList", // unique ID (with respect to other atoms/selectors)
+  default: [] as Place[], // default value (aka initial value)
+});
 
 export const getRandomId = () => {
   let ret = "";
@@ -22,7 +27,7 @@ export const getRandomId = () => {
 };
 
 export const usePlace = () => {
-  const [placeList, setPlaceList] = useState([] as Place[]);
+  const [placeList, setPlaceList] = useRecoilState(placeListState);
 
   const addPlace = (name: string) => {
     const id = getRandomId();
