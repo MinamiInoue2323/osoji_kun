@@ -24,10 +24,16 @@ export type ModalProps = {
 
 const PlaceModal: React.FC<ModalProps> = (props) => {
   const [inputPlaceRename, setInputPlaceRename] = useState("");
+  const [buttonEnabled, setButtonEnabled] = useState(true);
   const handleInputPlaceRename = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setInputPlaceRename(event.target.value);
+    if (!event.target.value) {
+      setButtonEnabled(false);
+    } else {
+      setButtonEnabled(true);
+    }
   };
 
   useEffect(() => {
@@ -73,6 +79,7 @@ const PlaceModal: React.FC<ModalProps> = (props) => {
                 }
                 props.handleModalClose();
               }}
+              disabled={!buttonEnabled}
             >
               変更を保存
             </Button>

@@ -42,8 +42,10 @@ const PlacePage = () => {
         />
         <IconButton
           onClick={() => {
-            addPlace(inputPlace);
-            setInputPlace("");
+            if (inputPlace) {
+              addPlace(inputPlace);
+              setInputPlace("");
+            }
           }}
         >
           <AddIcon />
