@@ -3,10 +3,11 @@ import { Button, Stack, TextField, Typography } from "@mui/material";
 import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Dayjs } from "dayjs";
+import { useConfig } from "../hooks/useConfig";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const ConfigPage = () => {
-  const [value, setValue] = React.useState<Dayjs | null>(null);
+  const { pushTime, updatePushTime } = useConfig();
   return (
     <Stack spacing={2}>
       <Stack direction="row" spacing={2} justifyContent="space-between">
@@ -18,9 +19,9 @@ const ConfigPage = () => {
           sx={{ width: "right" }}
         >
           <TimePicker
-            value={value}
+            value={pushTime}
             onChange={(newValue) => {
-              setValue(newValue);
+              updatePushTime(newValue);
             }}
             renderInput={(params) => <TextField {...params} />}
           />
