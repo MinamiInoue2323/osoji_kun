@@ -2,16 +2,20 @@
 import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 
-export type Config = {
-  pushTime: Dayjs;
+export type configTime = {
+  hours: number;
+  minutes: number;
 };
 
 export const useConfig = () => {
   //pushtimeの型の付け方どうする問題
-  const [pushTime, setPushTime] = useState<Dayjs | null>(dayjs());
+  const [pushTime, setPushTime] = useState<configTime>({
+    hours: 21,
+    minutes: 0,
+  });
 
-  const updatePushTime = (time: Dayjs | null) => {
-    setPushTime(time);
+  const updatePushTime = (time: Dayjs) => {
+    setPushTime({ hours: time.hour(), minutes: time.minute() });
   };
 
   return {
