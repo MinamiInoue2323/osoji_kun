@@ -1,6 +1,6 @@
 // import { Place } from "@mui/icons-material";
 import { useState } from "react";
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 
 export type configTime = {
   hours: number;
