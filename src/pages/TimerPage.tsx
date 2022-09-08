@@ -1,6 +1,10 @@
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import React from "react";
+import OsojiTimer from "../components/OsojiTimer";
 
 const TimerPage = () => {
+  const timerTime = new Date();
+  timerTime.setSeconds(timerTime.getSeconds() + 30); // 10 minutes timer
   return (
     <div>
       <div>
@@ -8,17 +12,7 @@ const TimerPage = () => {
           床を掃除しよう！
         </Typography>
       </div>
-      <div>
-        <Typography variant="h1" component="h2" gutterBottom>
-          10:00
-        </Typography>
-        <div>
-          <Button variant="contained">掃除を開始する</Button>
-          <Button variant="contained" disabled>
-            掃除を完了する
-          </Button>
-        </div>
-      </div>
+      <OsojiTimer expiryTimeStamp={timerTime} />
     </div>
   );
 };
