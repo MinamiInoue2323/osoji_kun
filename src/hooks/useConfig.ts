@@ -8,7 +8,6 @@ export type configTime = {
 };
 
 export const useConfig = () => {
-  //pushtimeの型の付け方どうする問題
   const [pushTime, setPushTime] = useState<configTime>({
     hours: 21,
     minutes: 0,

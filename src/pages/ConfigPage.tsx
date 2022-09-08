@@ -11,6 +11,7 @@ const ConfigPage = () => {
   const [timePicker, setTimePicker] = useState<Dayjs>(dayjs());
   useEffect(() => {
     setTimePicker(dayjs().hour(pushTime.hours).minute(pushTime.minutes));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Stack spacing={2}>
