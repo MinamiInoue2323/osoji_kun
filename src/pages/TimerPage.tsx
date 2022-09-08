@@ -4,7 +4,7 @@ import OsojiTimer from "../components/OsojiTimer";
 
 const TimerPage = () => {
   const timerTime = new Date();
-  timerTime.setSeconds(timerTime.getSeconds() + 30); // 10 minutes timer
+  timerTime.setSeconds(timerTime.getSeconds() + 600); // 10 minutes timer
   return (
     <div>
       <div>
