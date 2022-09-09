@@ -17,7 +17,6 @@ export const useCleanTargetPlace = () => {
 
   useEffect(() => {
     if (!currentTargetPlace) {
-      console.log("update start ");
       updateCurrentCleanTargetPlace();
     }
     isFirstRender.current = true;
@@ -42,24 +41,15 @@ export const useCleanTargetPlace = () => {
     );
     //place Listの場所が全て掃除済みだった場合はreset
     if (!candidatePlaces.length) {
-      console.log("reset");
       candidatePlaces = [...placeList];
       setFinishPlaceList([]);
     }
-    console.log(candidatePlaces);
     const newTargetPlace =
       candidatePlaces[getRandomInt(candidatePlaces.length)];
     setCurrentTargetPlace(newTargetPlace);
-
-    console.log(placeList);
-
-    console.log(finishPlaceList);
-    console.log(newTargetPlace);
   };
 
   const finishClean = (place: Place) => {
-    console.log("finish place is ");
-    console.log(place);
     setFinishPlaceList((prev) => [...prev, place]);
   };
 
