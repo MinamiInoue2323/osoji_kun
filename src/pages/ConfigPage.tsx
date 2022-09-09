@@ -4,7 +4,6 @@ import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useConfig } from "../hooks/useConfig";
 import dayjs, { Dayjs } from "dayjs";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const ConfigPage = () => {
   const { pushTime, updatePushTime } = useConfig();
