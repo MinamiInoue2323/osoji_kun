@@ -1,24 +1,10 @@
 import { Place } from "@mui/icons-material";
 import { usePlaceList } from "../states/placeListState";
+import { getRandomId } from "../helpers/getRandomId";
 
 export type Place = {
   id: string;
   name: string;
-};
-
-export const getRandomId = () => {
-  let ret = "";
-  const arr = new Uint8Array(16);
-
-  if (window.crypto) {
-    window.crypto.getRandomValues(arr);
-  }
-
-  for (let i = 0; i < arr.length; i += 1) {
-    ret += arr[i].toString(16);
-  }
-
-  return ret.toUpperCase();
 };
 
 export const usePlace = () => {
