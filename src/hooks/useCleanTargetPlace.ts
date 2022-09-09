@@ -55,8 +55,6 @@ export const useCleanTargetPlace = () => {
 
   return {
     currentTargetPlace,
-    setCurrentTargetPlace,
-    updateCurrentCleanTargetPlace,
     finishClean,
   };
 };
