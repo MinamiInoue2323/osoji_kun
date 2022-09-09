@@ -1,5 +1,5 @@
 import { Place } from "@mui/icons-material";
-import { useState } from "react";
+import { usePlaceList } from "../states/placeListState";
 
 export type Place = {
   id: string;
@@ -22,7 +22,7 @@ export const getRandomId = () => {
 };
 
 export const usePlace = () => {
-  const [placeList, setPlaceList] = useState([] as Place[]);
+  const { placeList, setPlaceList } = usePlaceList();
 
   const addPlace = (name: string) => {
     const id = getRandomId();
