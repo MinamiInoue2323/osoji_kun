@@ -7,7 +7,7 @@ export type TimerProps = {
 };
 
 const OsojiTimer: React.FC<TimerProps> = (props) => {
-  const { seconds, minutes, isRunning, start, pause } = useTimer({
+  const { seconds, minutes, resume, isRunning, start, pause } = useTimer({
     expiryTimestamp: props.expiryTimeStamp,
     autoStart: false,
     onExpire: () => {
@@ -21,12 +21,11 @@ const OsojiTimer: React.FC<TimerProps> = (props) => {
       <Typography variant="h1" component="h2" gutterBottom>
         {minutes}:{("00" + seconds).slice(-2)}
       </Typography>
-      <div style={{ display: isOsojiCompleted ? "" : "none" }}>
+      {isOsojiCompleted ? (
         <Typography variant="h2" component="h2" gutterBottom>
           お掃除完了！
         </Typography>
-      </div>
-      <div style={{ display: isOsojiCompleted ? "none" : "" }}>
+      ) : (
         <div>
           <Button
             variant="contained"
@@ -43,13 +42,13 @@ const OsojiTimer: React.FC<TimerProps> = (props) => {
           </Button>
           <Button
             variant="contained"
-            onClick={start}
+            onClick={resume}
             disabled={isRunning || !isTimerStarted}
           >
             再開
           </Button>
         </div>
-      </div>
+      )}
     </>
   );
 };
