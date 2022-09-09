@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const TimerPage = () => {
   const timerTime = new Date();
-  timerTime.setSeconds(timerTime.getSeconds() + 10); // 10 minutes timer
+  timerTime.setSeconds(timerTime.getSeconds() + 600); // 10 minutes timer
   const { currentTargetPlace, finishClean } = useCleanTargetPlace();
   const navigate = useNavigate();
 
