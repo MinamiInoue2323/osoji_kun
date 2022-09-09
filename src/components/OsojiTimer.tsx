@@ -4,6 +4,7 @@ import { useTimer } from "react-timer-hook";
 
 export type TimerProps = {
   expiryTimeStamp: Date;
+  handleFinishInfo: () => void;
 };
 
 const OsojiTimer: React.FC<TimerProps> = (props) => {
@@ -12,6 +13,7 @@ const OsojiTimer: React.FC<TimerProps> = (props) => {
     autoStart: false,
     onExpire: () => {
       setIsOsojiCompleted(true);
+      props.handleFinishInfo();
     },
   });
   const [isTimerStarted, setIsTimerStarted] = useState(false);
