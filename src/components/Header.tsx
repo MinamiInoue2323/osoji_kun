@@ -30,26 +30,6 @@ const Header = () => {
     { name: "設定", url: "/config" },
   ];
 
-  const list = (
-    <Box sx={{ width: 250 }} role="presentation">
-      <List>
-        {pageList.map((page) => (
-          <ListItem key={page.name} disablePadding>
-            <ListItemButton
-              onClick={() => {
-                toggleDrawer();
-                navigate(page.url);
-              }}
-            >
-              <ListItemText primary={page.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-    </Box>
-  );
-
   const navigate = useNavigate();
 
   return (
@@ -77,7 +57,23 @@ const Header = () => {
         <Typography variant="h4" component="div">
           お掃除くん
         </Typography>
-        {list}
+        <Box sx={{ width: 250 }} role="presentation">
+          <List>
+            {pageList.map((page) => (
+              <ListItem key={page.name} disablePadding>
+                <ListItemButton
+                  onClick={() => {
+                    toggleDrawer();
+                    navigate(page.url);
+                  }}
+                >
+                  <ListItemText primary={page.name} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+        </Box>
       </Drawer>
     </div>
   );
