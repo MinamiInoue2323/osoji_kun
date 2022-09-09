@@ -1,7 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
-import { Place } from "../hooks/usePlace";
 
 export type TimerProps = {
   expiryTimeStamp: Date;
