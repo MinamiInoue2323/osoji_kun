@@ -19,6 +19,7 @@
     "@mui/x-date-pickers": "^5.0.0",
     "@types/recoil": "^0.0.9",
     "dayjs": "^1.11.5",
+    "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
