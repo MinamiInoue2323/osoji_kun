@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
+import { useFirebaseAuth } from "../hooks/useFirebaseAuth";
 
 import {
+  Button,
   Divider,
   Drawer,
   List,
@@ -17,15 +19,21 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+export type HeaderProps = {
+  isLogin: boolean;
+};
+
+const Header: React.FC<HeaderProps> = (props) => {
   const [modalOpen, setModalOpen] = React.useState(false);
+
+  const { signOutAction } = useFirebaseAuth();
 
   const toggleDrawer = () => {
     setModalOpen(!modalOpen);
   };
 
   const pageList = [
-    { name: "タイマー", url: "/" },
+    { name: "タイマー", url: "/timer" },
     { name: "掃除場所一覧", url: "/place" },
     { name: "設定", url: "/config" },
   ];
@@ -50,6 +58,12 @@ const Header = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               何かしらのページタイトル
             </Typography>
+
+            {props.isLogin && (
+              <Button variant="contained" onClick={signOutAction}>
+                Logout
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </Box>
