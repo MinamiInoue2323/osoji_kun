@@ -18,22 +18,20 @@ import {
   ListItemText,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { authenticatedState } from "../provider/firebaseStore";
 
-export type HeaderProps = {
-  isLogin: boolean;
-};
-
-const Header: React.FC<HeaderProps> = (props) => {
+const Header = () => {
   const [modalOpen, setModalOpen] = React.useState(false);
-
-  const { signOutAction } = useFirebaseAuth();
+  const { signInAction, signOutAction } = useFirebaseAuth();
+  const authenticated = useRecoilValue(authenticatedState);
 
   const toggleDrawer = () => {
     setModalOpen(!modalOpen);
   };
 
   const pageList = [
-    { name: "タイマー", url: "/timer" },
+    { name: "タイマー", url: "/" },
     { name: "掃除場所一覧", url: "/place" },
     { name: "設定", url: "/config" },
   ];
@@ -59,7 +57,7 @@ const Header: React.FC<HeaderProps> = (props) => {
               何かしらのページタイトル
             </Typography>
 
-            {props.isLogin && (
+            {authenticated && (
               <Button variant="contained" onClick={signOutAction}>
                 Logout
               </Button>

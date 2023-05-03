@@ -8,8 +8,6 @@ export const useFirebaseAuth = () => {
     signInWithRedirect(auth, provider).catch((err) => {
       alert(err);
     });
-    // problem: page遷移前にこのページが見えてしまう。非同期だから？
-    navigate("/timer");
   };
   const signOutAction = () => {
     signOut(auth);

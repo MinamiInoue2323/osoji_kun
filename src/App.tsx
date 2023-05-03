@@ -32,15 +32,12 @@ const App = () => {
         <CssBaseline />
         <BrowserRouter>
           <div style={{ textAlign: "center", maxWidth: 480, margin: "0 auto" }}>
+            <Header />
             <Routes>
               <Route
                 path="/"
                 element={<RouterAuthenticatedCheck component={<Outlet />} />}
               >
-                <Route
-                  path="/timer"
-                  element={<RouterHasAuthenticated component={<TimerPage />} />}
-                />
                 <Route
                   path="/place"
                   element={<RouterHasAuthenticated component={<PlacePage />} />}
@@ -55,8 +52,7 @@ const App = () => {
                   index
                   element={
                     <>
-                      <Header isLogin={false} />
-                      <LoginPage />
+                      <TimerPage />
                     </>
                   }
                 />
