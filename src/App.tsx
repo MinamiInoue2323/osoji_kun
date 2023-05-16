@@ -2,12 +2,17 @@ import React from "react";
 import TimerPage from "./pages/TimerPage";
 import PlacePage from "./pages/PlacePage";
 import ConfigPage from "./pages/ConfigPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { RecoilRoot } from "recoil";
+import LoginPage from "./pages/LoginPage";
+import {
+  RouterAuthenticatedCheck,
+  RouterHasAuthenticated,
+} from "./router/RouterAuthenticateConfig";
 
 const App = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -29,9 +34,33 @@ const App = () => {
           <div style={{ textAlign: "center", maxWidth: 480, margin: "0 auto" }}>
             <Header />
             <Routes>
-              <Route path="/" element={<TimerPage />} />
-              <Route path="/place" element={<PlacePage />} />
-              <Route path="/config" element={<ConfigPage />} />
+              <Route
+                element={<RouterAuthenticatedCheck component={<Outlet />} />}
+              >
+                <Route
+                  path="/place"
+                  element={<RouterHasAuthenticated component={<PlacePage />} />}
+                />
+                <Route
+                  path="/config"
+                  element={
+                    <RouterHasAuthenticated component={<ConfigPage />} />
+                  }
+                />
+                <Route path="/login" element={<LoginPage />} />
+                <Route
+                  path="/"
+                  element={<RouterHasAuthenticated component={<TimerPage />} />}
+                />
+                {/* <Route
+                  index
+                  element={
+                    <>
+                      <LoginPage />
+                    </>
+                  }
+                /> */}
+              </Route>
             </Routes>
           </div>
         </BrowserRouter>
