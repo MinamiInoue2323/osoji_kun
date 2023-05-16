@@ -62,6 +62,6 @@ export const RouterHasAuthenticated = (props: Props) => {
   const { component } = props;
   const authenticated = useRecoilValue(authenticatedState);
   // todo: redirect先をいい感じに変えたいので構成相談
-  if (!authenticated) return <NavigationPage redirect="/" />;
+  if (!authenticated) return <NavigationPage redirect="/login" />;
   return <>{component}</>;
 };

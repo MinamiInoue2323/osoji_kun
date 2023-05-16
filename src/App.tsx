@@ -35,7 +35,6 @@ const App = () => {
             <Header />
             <Routes>
               <Route
-                path="/"
                 element={<RouterAuthenticatedCheck component={<Outlet />} />}
               >
                 <Route
@@ -48,14 +47,19 @@ const App = () => {
                     <RouterHasAuthenticated component={<ConfigPage />} />
                   }
                 />
+                <Route path="/login" element={<LoginPage />} />
                 <Route
+                  path="/"
+                  element={<RouterHasAuthenticated component={<TimerPage />} />}
+                />
+                {/* <Route
                   index
                   element={
                     <>
-                      <TimerPage />
+                      <LoginPage />
                     </>
                   }
-                />
+                /> */}
               </Route>
             </Routes>
           </div>

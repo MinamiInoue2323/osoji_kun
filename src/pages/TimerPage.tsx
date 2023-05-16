@@ -23,46 +23,33 @@ const TimerPage = () => {
   };
 
   return (
-    <>
-      {authenticated ? (
-        <div>
-          {currentTargetPlace ? (
-            <>
-              <Typography variant="h2" component="h4" gutterBottom>
-                {currentTargetPlace.name}を掃除しよう！
-              </Typography>
-              <OsojiTimer
-                handleFinishInfo={handleFinishInfo}
-                expiryTimeStamp={timerTime}
-              />
-            </>
-          ) : (
-            <>
-              <Typography variant="h2" component="h4" gutterBottom>
-                まずは掃除場所を登録しよう！
-              </Typography>
-              <Button
-                variant="contained"
-                onClick={() => {
-                  navigate("/place");
-                }}
-              >
-                掃除場所の登録
-              </Button>
-            </>
-          )}
-        </div>
+    <div>
+      {currentTargetPlace ? (
+        <>
+          <Typography variant="h2" component="h4" gutterBottom>
+            {currentTargetPlace.name}を掃除しよう！
+          </Typography>
+          <OsojiTimer
+            handleFinishInfo={handleFinishInfo}
+            expiryTimeStamp={timerTime}
+          />
+        </>
       ) : (
         <>
-          <Button variant="contained" onClick={signInAction} sx={{ m: 2 }}>
-            Login
-          </Button>
-          <Button variant="contained" onClick={signOutAction} sx={{ m: 2 }}>
-            Logout
+          <Typography variant="h2" component="h4" gutterBottom>
+            まずは掃除場所を登録しよう！
+          </Typography>
+          <Button
+            variant="contained"
+            onClick={() => {
+              navigate("/place");
+            }}
+          >
+            掃除場所の登録
           </Button>
         </>
       )}
-    </>
+    </div>
   );
 };
 
