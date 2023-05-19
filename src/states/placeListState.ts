@@ -7,7 +7,7 @@ const { persistAtom } = recoilPersist();
 const placeListState = atom({
   key: "placelist",
   default: [] as Place[],
-  effects_UNSTABLE: [persistAtom],
+  effects: [persistAtom],
 });
 
 export const usePlaceList = () => {

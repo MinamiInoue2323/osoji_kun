@@ -7,7 +7,7 @@ const { persistAtom } = recoilPersist();
 const currentTargetPlaceState = atom({
   key: "currenttargetplace",
   default: null as Place | null,
-  effects_UNSTABLE: [persistAtom],
+  effects: [persistAtom],
 });
 
 export const useCurrentTargetPlace = () => {
