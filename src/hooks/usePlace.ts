@@ -12,19 +12,21 @@ export const usePlace = () => {
 
   const addPlace = (name: string) => {
     const id = getRandomId();
-    setPlaceList((prev) => [...prev, { id, name }]);
+    setPlaceList((prev: any) => [...prev, { id, name }]);
   };
 
   const deletePlace = (id: string) => {
-    setPlaceList((prev) => {
-      const deletePlaces = prev.filter((item) => item.id !== id);
+    setPlaceList((prev: any) => {
+      const deletePlaces = prev.filter(
+        (item: { id: string }) => item.id !== id
+      );
       return deletePlaces;
     });
   };
 
   const renamePlace = (id: string, name: string) => {
-    setPlaceList((prev) =>
-      prev.map((item) => (item.id === id ? { id, name } : item))
+    setPlaceList((prev: any[]) =>
+      prev.map((item: { id: string }) => (item.id === id ? { id, name } : item))
     );
   };
 
