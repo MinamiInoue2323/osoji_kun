@@ -55,7 +55,7 @@ const PlacePage = () => {
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.white" }}
         >
-          {placeList.map((place) => {
+          {placeList.map((place: { id: any; name: any }) => {
             return (
               <ListItem
                 key={place.id}

@@ -1,9 +1,13 @@
 import { atom, useRecoilState } from "recoil";
+import { recoilPersist } from "recoil-persist";
 import { Place } from "../hooks/usePlace";
+
+const { persistAtom } = recoilPersist();
 
 const finishPlaceListState = atom({
   key: "finishplacelist",
   default: [] as Place[],
+  effects: [persistAtom],
 });
 
 export const useFinishPlaceList = () => {

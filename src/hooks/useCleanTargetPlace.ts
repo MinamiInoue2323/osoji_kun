@@ -37,7 +37,7 @@ export const useCleanTargetPlace = () => {
   const updateCurrentCleanTargetPlace = () => {
     //placelistに存在してfinishPlaceListにないPlaceを抽出
     let candidatePlaces = placeList.filter(
-      (item) => !finishPlaceList.includes(item)
+      (item: any) => !finishPlaceList.includes(item)
     );
     //place Listの場所が全て掃除済みだった場合はreset
     if (!candidatePlaces.length) {
@@ -50,7 +50,7 @@ export const useCleanTargetPlace = () => {
   };
 
   const finishClean = (place: Place) => {
-    setFinishPlaceList((prev) => [...prev, place]);
+    setFinishPlaceList((prev: any) => [...prev, place]);
   };
 
   return {
