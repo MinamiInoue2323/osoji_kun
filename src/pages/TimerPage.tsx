@@ -11,7 +11,7 @@ import { useConfig } from "../hooks/useConfig";
 const TimerPage = () => {
   const { cleanTime } = useConfig();
   const timerTime = new Date();
-  timerTime.setSeconds(timerTime.getSeconds() + cleanTime); // 10 minutes timer
+  timerTime.setSeconds(timerTime.getSeconds() + cleanTime * 60); // 10 minutes timer
   const { currentTargetPlace, finishClean } = useCleanTargetPlace();
   const navigate = useNavigate();
   const { signInAction, signOutAction } = useFirebaseAuth();

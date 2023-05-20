@@ -20,10 +20,14 @@ export const useConfig = () => {
   const updatePushTime = (time: Dayjs) => {
     setPushTime({ hours: time.hour(), minutes: time.minute() });
   };
+  const updateCleanTime = (time: number) => {
+    setCleanTime(time);
+  };
 
   return {
     pushTime,
     updatePushTime,
     cleanTime,
+    updateCleanTime,
   };
 };

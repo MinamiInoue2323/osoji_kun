@@ -4,10 +4,10 @@ import { configTime } from "../hooks/useConfig";
 
 const { persistAtom } = recoilPersist();
 
-// 秒単位でcleanTimeを保存
+// 分単位でcleanTimeを保存
 const cleanTimeState = atom({
   key: "cleantime",
-  default: 600 as number,
+  default: 10 as number,
   effects: [persistAtom],
 });
 
