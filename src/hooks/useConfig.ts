@@ -4,6 +4,7 @@ import { recoilPersist } from "recoil-persist";
 import { useState } from "react";
 import { Dayjs } from "dayjs";
 import { usePushTime } from "../states/pushTimeState";
+import { useCleanTime } from "../states/cleanTimeState";
 
 const { persistAtom } = recoilPersist();
 
@@ -14,11 +15,15 @@ export type configTime = {
 
 export const useConfig = () => {
   const { pushTime, setPushTime } = usePushTime();
+  const { cleanTime, setCleanTime } = useCleanTime();
+
   const updatePushTime = (time: Dayjs) => {
     setPushTime({ hours: time.hour(), minutes: time.minute() });
   };
+
   return {
     pushTime,
     updatePushTime,
+    cleanTime,
   };
 };

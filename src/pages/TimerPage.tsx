@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { useFirebaseAuth } from "../hooks/useFirebaseAuth";
 import { authenticatedState } from "../provider/firebaseStore";
 import { useRecoilValue } from "recoil";
+import { useConfig } from "../hooks/useConfig";
 
 const TimerPage = () => {
+  const { cleanTime } = useConfig();
   const timerTime = new Date();
-  timerTime.setSeconds(timerTime.getSeconds() + 600); // 10 minutes timer
+  timerTime.setSeconds(timerTime.getSeconds() + cleanTime); // 10 minutes timer
   const { currentTargetPlace, finishClean } = useCleanTargetPlace();
   const navigate = useNavigate();
   const { signInAction, signOutAction } = useFirebaseAuth();
