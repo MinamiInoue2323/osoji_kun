@@ -61,7 +61,13 @@ export const RouterAuthenticatedCheck = (props: Props) => {
 export const RouterHasAuthenticated = (props: Props) => {
   const { component } = props;
   const authenticated = useRecoilValue(authenticatedState);
-  // todo: redirect先をいい感じに変えたいので構成相談
-  if (!authenticated) return <NavigationPage redirect="/login" />;
+  // 現在のurlを取得
+  // 現状の仕様だと別のところから飛んだ後にloginでリロードをした場合最初に飛ぶ前のリンクに戻る
+  const path = useLocation();
+  if (!authenticated) {
+    // 未認証の場合はsessionStorageに現在のURLを入れた後に
+    sessionStorage.setItem("url_redirected_from", path.pathname);
+    return <NavigationPage redirect="/login" />;
+  }
   return <>{component}</>;
 };
