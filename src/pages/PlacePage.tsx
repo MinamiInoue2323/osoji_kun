@@ -53,7 +53,7 @@ const PlacePage = () => {
       </div>
       <div>
         <List
-          sx={{ width: "100%", maxWidth: 600, bgcolor: "background.white" }}
+          sx={{ width: "100%", bgcolor: "background.white" }}
         >
           {placeList.map((place: { id: any; name: any }) => {
             return (
