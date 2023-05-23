@@ -1,6 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
+import { useConfig } from "../hooks/useConfig";
 
 export type TimerProps = {
   expiryTimeStamp: Date;
@@ -8,6 +9,7 @@ export type TimerProps = {
 };
 
 const OsojiTimer: React.FC<TimerProps> = (props) => {
+  const { cleanTime } = useConfig();
   const { seconds, minutes, resume, isRunning, restart, start, pause } =
     useTimer({
       expiryTimestamp: props.expiryTimeStamp,
@@ -22,7 +24,7 @@ const OsojiTimer: React.FC<TimerProps> = (props) => {
 
   const resetTimer = () => {
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 600);
+    time.setSeconds(time.getSeconds() + cleanTime * 60);
     restart(time, false);
     setIsOsojiCompleted(false);
     setIsTimerStarted(false);
