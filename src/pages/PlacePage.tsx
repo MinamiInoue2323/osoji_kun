@@ -53,7 +53,7 @@ const PlacePage = () => {
       </div>
       <div>
         <List
-          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.white" }}
+          sx={{ width: "100%", bgcolor: "background.white" }}
         >
           {placeList.map((place: { id: any; name: any }) => {
             return (
@@ -61,7 +61,7 @@ const PlacePage = () => {
                 key={place.id}
                 disablePadding
                 secondaryAction={
-                  <IconButton onClick={() => deletePlace(place.id)}>
+                  <IconButton edge="end" onClick={() => deletePlace(place.id)}>
                     <ClearIcon />
                   </IconButton>
                 }
